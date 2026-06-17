@@ -4,6 +4,7 @@
 import qrcode
 import json
 import os
+import random
 import sys
 import uuid
 from datetime import datetime
@@ -194,20 +195,23 @@ def home():
         "app": "EcoReward",
         "status": "running",
         "base_url": BASE_URL,
-        "generate_url": f"{BASE_URL}/generate?points=10&campaign=welcome",
+        "generate_url": f"{BASE_URL}/generate",
     })
 
 
 @app.route("/generate")
 def generate_from_browser():
     """Generate a QR code from the browser."""
-    points = request.args.get("points", "10")
+    points = request.args.get("points", "random")
     campaign = request.args.get("campaign", "default")
 
-    try:
-        points = int(points)
-    except ValueError:
-        return jsonify({"success": False, "message": "points must be a number"}), 400
+    if points.lower() == "random":
+        points = random.choice([10, 20, 30, 50, 75, 100])
+    else:
+        try:
+            points = int(points)
+        except ValueError:
+            return jsonify({"success": False, "message": "points must be a number or random"}), 400
 
     filename, code_id = generate_qr(points=points, campaign=campaign)
     qr_filename = os.path.basename(filename)
