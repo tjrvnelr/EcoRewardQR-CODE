@@ -1,0 +1,172 @@
+{
+  "users": {
+    "guest_657A5E": {
+      "points": 50,
+      "history": [
+        {
+          "code": "75171087",
+          "earned": 50,
+          "date": "2026-06-17T18:55:04.549162"
+        }
+      ]
+    },
+    "guest_B984C1": {
+      "points": 10,
+      "history": [
+        {
+          "code": "84506859",
+          "earned": 10,
+          "date": "2026-06-17T18:55:40.245057"
+        }
+      ]
+    },
+    "guest_C33023": {
+      "points": 50,
+      "history": [
+        {
+          "code": "211CB8AE",
+          "earned": 50,
+          "date": "2026-06-17T19:07:27.133252"
+        }
+      ]
+    },
+    "guest_9EE77C": {
+      "points": 10,
+      "history": [
+        {
+          "code": "F59A9DB2",
+          "earned": 10,
+          "date": "2026-06-17T19:08:27.370209"
+        }
+      ]
+    }
+  },
+  "codes": {
+    "190129FE": {
+      "points": 10,
+      "campaign": "default",
+      "created": "2026-06-17T18:48:37.159912",
+      "redeemed": false,
+      "redeemed_by": null
+    },
+    "A96369A3": {
+      "points": 10,
+      "campaign": "default",
+      "created": "2026-06-17T18:48:50.997948",
+      "redeemed": false,
+      "redeemed_by": null
+    },
+    "84506859": {
+      "points": 10,
+      "campaign": "welcome",
+      "created": "2026-06-17T18:51:26.512788",
+      "redeemed": true,
+      "redeemed_by": "guest_B984C1"
+    },
+    "75171087": {
+      "points": 50,
+      "campaign": "promo",
+      "created": "2026-06-17T18:51:26.572304",
+      "redeemed": true,
+      "redeemed_by": "guest_657A5E"
+    },
+    "B375E698": {
+      "points": 10,
+      "campaign": "welcome",
+      "created": "2026-06-17T18:51:27.207365",
+      "redeemed": false,
+      "redeemed_by": null
+    },
+    "55AE5828": {
+      "points": 50,
+      "campaign": "promo",
+      "created": "2026-06-17T18:51:27.262014",
+      "redeemed": false,
+      "redeemed_by": null
+    },
+    "06D4AAB8": {
+      "points": 10,
+      "campaign": "welcome",
+      "created": "2026-06-17T18:57:02.581619",
+      "redeemed": false,
+      "redeemed_by": null
+    },
+    "D1C4E3F5": {
+      "points": 50,
+      "campaign": "promo",
+      "created": "2026-06-17T18:57:02.634375",
+      "redeemed": false,
+      "redeemed_by": null
+    },
+    "F55E8F34": {
+      "points": 10,
+      "campaign": "welcome",
+      "created": "2026-06-17T18:57:07.289836",
+      "redeemed": false,
+      "redeemed_by": null
+    },
+    "AD554B68": {
+      "points": 50,
+      "campaign": "promo",
+      "created": "2026-06-17T18:57:07.341363",
+      "redeemed": false,
+      "redeemed_by": null
+    },
+    "6C9D4AAB": {
+      "points": 10,
+      "campaign": "welcome",
+      "created": "2026-06-17T19:07:20.090275",
+      "redeemed": false,
+      "redeemed_by": null
+    },
+    "5D1B03C2": {
+      "points": 50,
+      "campaign": "promo",
+      "created": "2026-06-17T19:07:20.154249",
+      "redeemed": false,
+      "redeemed_by": null
+    },
+    "58C5C8F3": {
+      "points": 10,
+      "campaign": "welcome",
+      "created": "2026-06-17T19:07:20.717931",
+      "redeemed": false,
+      "redeemed_by": null
+    },
+    "211CB8AE": {
+      "points": 50,
+      "campaign": "promo",
+      "created": "2026-06-17T19:07:20.767381",
+      "redeemed": true,
+      "redeemed_by": "guest_C33023"
+    },
+    "C0AC6A95": {
+      "points": 10,
+      "campaign": "welcome",
+      "created": "2026-06-17T19:08:11.103576",
+      "redeemed": false,
+      "redeemed_by": null
+    },
+    "CB7132D8": {
+      "points": 50,
+      "campaign": "promo",
+      "created": "2026-06-17T19:08:11.165774",
+      "redeemed": false,
+      "redeemed_by": null
+    },
+    "F59A9DB2": {
+      "points": 10,
+      "campaign": "welcome",
+      "created": "2026-06-17T19:08:13.754895",
+      "redeemed": true,
+      "redeemed_by": "guest_9EE77C"
+    },
+    "C8F83687": {
+      "points": 50,
+      "campaign": "promo",
+      "created": "2026-06-17T19:08:13.803923",
+      "redeemed": false,
+      "redeemed_by": null
+    }
+  }
+}
