@@ -194,7 +194,80 @@ def home():
         "app": "EcoReward",
         "status": "running",
         "base_url": BASE_URL,
+        "generate_url": f"{BASE_URL}/generate?points=10&campaign=welcome",
     })
+
+
+@app.route("/generate")
+def generate_from_browser():
+    """Generate a QR code from the browser."""
+    points = request.args.get("points", "10")
+    campaign = request.args.get("campaign", "default")
+
+    try:
+        points = int(points)
+    except ValueError:
+        return jsonify({"success": False, "message": "points must be a number"}), 400
+
+    filename, code_id = generate_qr(points=points, campaign=campaign)
+    qr_filename = os.path.basename(filename)
+    scan_url = f"{BASE_URL}/scan/{code_id}"
+    qr_url = f"{BASE_URL}/qr_codes/{qr_filename}"
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoReward QR Generated</title>
+  <style>
+    body {{
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f2f7f4;
+      color: #173b2f;
+      padding: 24px;
+    }}
+    main {{
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      background: white;
+      border: 1px solid #d7e6dd;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(20, 70, 45, 0.12);
+    }}
+    img {{
+      width: 240px;
+      height: 240px;
+      margin: 12px auto;
+      display: block;
+    }}
+    a {{
+      color: #0f7a4d;
+      overflow-wrap: anywhere;
+      font-weight: 700;
+    }}
+    .meta {{
+      margin: 12px 0;
+      color: #47645a;
+    }}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>QR Code Created</h1>
+    <img src="{qr_url}" alt="Generated QR code"/>
+    <p class="meta">Code ID: <strong>{code_id}</strong></p>
+    <p class="meta">Points: <strong>{points}</strong></p>
+    <p><a href="{scan_url}">{scan_url}</a></p>
+  </main>
+</body>
+</html>"""
 
 
 # HTML helpers
