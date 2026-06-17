@@ -16,6 +16,7 @@ app = Flask(__name__)
 
 DATA_FILE = "EcoRewardQR.json"
 QR_DIR    = "qr_codes"
+BASE_URL  = os.environ.get("APP_BASE_URL", "http://localhost:5000").rstrip("/")
 os.makedirs(QR_DIR, exist_ok=True)
 
 def load_data():
@@ -47,7 +48,7 @@ def generate_qr(points: int = 10, campaign: str = "default") -> str:
     Returns the filename of the saved PNG.
     """
     code_id  = str(uuid.uuid4())[:8].upper()
-    url      = f"http://localhost:5000/scan/{code_id}"
+    url      = f"{BASE_URL}/scan/{code_id}"
 
     # Store the code metadata
     data = load_data()
@@ -184,6 +185,16 @@ def balance(user_id):
     data = load_data()
     user = data["users"].get(user_id, {"points": 0, "history": []})
     return jsonify({"user_id": user_id, "points": user["points"], "history": user["history"]})
+
+
+@app.route("/")
+def home():
+    """Simple health page for web hosts."""
+    return jsonify({
+        "app": "EcoReward",
+        "status": "running",
+        "base_url": BASE_URL,
+    })
 
 
 # HTML helpers
@@ -338,6 +349,7 @@ if __name__ == "__main__":
         print("=" * 50)
         generate_qr(points=10, campaign="welcome")
         generate_qr(points=50, campaign="promo")
-        print("Starting server → http://localhost:5000")
+        port = int(os.environ.get("PORT", 5000))
+        print(f"Starting server → http://localhost:{port}")
         print("Scan any QR code to earn points!\n")
-        app.run(debug=True, host="0.0.0.0", port=5000)
+        app.run(debug=True, host="0.0.0.0", port=port)
