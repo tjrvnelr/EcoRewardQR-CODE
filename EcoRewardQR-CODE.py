@@ -1,6 +1,3 @@
-# Steps to run:
-# 1. Install dependencies: pip install flask qrcode[pil]
-# 2. Run the server: .\.venv\Scripts\python.exe .\EcoRewardQR-CODE.py
 import qrcode
 import json
 import os
